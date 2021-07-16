@@ -29,9 +29,12 @@
                         <strong><?php the_author(  ); ?></strong><br/>
                         <?php echo get_the_date("jS M, Y");?>
                     </p>
-                    <ul class="list-unstyled">
-                        <li>dhaka</li>
-                    </ul>
+                     <?php 
+                        $tag_list = get_the_tag_list( '<ul class="list-unstyled tag-list"><li>', '</li><li>', '</li></ul>' );
+                        if ( $tag_list && ! is_wp_error( $tag_list ) ) {
+                            echo $tag_list;
+                        }
+                    ?>
                 </div>
                 <div class="col-md-8">
                    
@@ -43,7 +46,7 @@
 
         </div>
     </div>
-    
+
     <?php  
 
       }
